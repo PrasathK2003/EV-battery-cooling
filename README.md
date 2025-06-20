@@ -119,9 +119,9 @@ This code:
 ## Example Display
 # Temp: 35°C
 - Fan:ON Pel:OFF
-#OVERHEAT 45°C
+# OVERHEAT 45°C
 - Fan:ON Pel:ON
-#COOL 28°C
+# COOL 28°C
 - Fan:OFF Pel:OFF
 
 ---
