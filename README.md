@@ -32,31 +32,53 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 ---
 
-## ⚡ Circuit Overview
-### Key Connections
-| Arduino | Component | Purpose |
-|----------|------------|---------|
-| A0 | TMP36 VOUT | Read temperature |
-| D9 | MOSFET (fan gate) | Control fan |
-| D8 | MOSFET (Peltier gate) | Control Peltier |
-| D12 | LCD RS | LCD command/data select |
-| D11 | LCD E | LCD enable |
-| D5 | LCD DB4 | LCD data bit 4 |
-| D4 | LCD DB5 | LCD data bit 5 |
-| D3 | LCD DB6 | LCD data bit 6 |
-| D2 | LCD DB7 | LCD data bit 7 |
-| GND | LCD RW | Always write mode |
-| 5V | LCD VCC | LCD power |
-| GND | LCD GND | LCD ground |
-| 5V | Pot VCC | Contrast pot power |
-| GND | Pot GND | Contrast pot ground |
-| Pot wiper | LCD VO | LCD contrast control |
-| 5V (via 220Ω) | LCD LED+ | Backlight +
-| GND | LCD LED- | Backlight -
+## 📌 Components Used
 
-✅ All grounds (Arduino, MOSFET, 12V PSU) must be connected.
+| Component | Description | Notes |
+|------------|-------------|-------|
+| **Arduino UNO** | Microcontroller | Central control unit |
+| **TMP36 Temperature Sensor** | Analog temperature sensor | Connected to A0 |
+| **16×2 LCD Display (HD44780, Parallel)** | Display for temperature and cooling status | RS, RW (GND), E, DB4-DB7 connected |
+| **Peltier Module** | Thermoelectric cooler | Driven via MOSFET |
+| **DC Fan** | Cooling fan | Driven via MOSFET |
+| **MOSFET (x2)** | N-channel MOSFET | One for Peltier, one for Fan |
+| **10k Potentiometer** | Contrast control | For LCD VO pin |
+| **220Ω Resistor** | Current limiting | For LCD backlight |
+| **12V Power Supply** | External supply | Powers Fan, Peltier, and Arduino (via VIN or barrel jack) |
 
 ---
+
+## ⚡ Key Connections
+
+| Arduino Pin | Connects To | Purpose |
+|-------------|--------------|---------|
+| A0 | TMP36 VOUT | Read temperature |
+| D9 | Fan MOSFET Gate | Switch fan |
+| D8 | Peltier MOSFET Gate | Switch Peltier |
+| D12 | LCD RS | LCD command/data select |
+| D11 | LCD E | LCD enable |
+| D5 | LCD DB4 | LCD data 4 |
+| D4 | LCD DB5 | LCD data 5 |
+| D3 | LCD DB6 | LCD data 6 |
+| D2 | LCD DB7 | LCD data 7 |
+| 5V | LCD VCC, TMP36 VCC, Pot VCC | Power |
+| GND | LCD GND, TMP36 GND, MOSFET Source, 12V PSU GND | Ground |
+| Pot wiper | LCD VO | LCD contrast control |
+
+✅ **All grounds must be tied together (Arduino, 12V PSU, MOSFET source, sensor, LCD).**
+✅ **Peltier + and Fan + connect directly to 12V PSU +.**
+✅ **Peltier - and Fan - connect to MOSFET Drain.**
+
+---
+
+## 📝 Notes
+
+- LCD is wired in **4-bit mode** (DB4-DB7 only)
+- RW is tied to **GND** (write-only mode)
+- Backlight powered via 5V and current limiting resistor (220Ω)
+- MOSFETs switch high-current loads safely
+
+
 
 ## 💻 Arduino Code
 
@@ -90,6 +112,11 @@ Fan:OFF Pel:OFF
 This project is licensed under the MIT License — feel free to use, modify, and share.
 
 ---
+EV-Battery-Cooling-System/
+├── src/
+│ └── cooling_system.ino
+├── circuit_diagram.png
+├── README.md
 
 ## 🙌 Author
 *Your Name*  
