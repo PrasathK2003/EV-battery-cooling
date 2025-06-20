@@ -1,6 +1,32 @@
 # EV-battery-cooling
 EV battery Cooling using Peltier Technology with IOT Integration
-# EV Battery Cooling System
+##  Peltier Technology & Thermal Management Principles
+
+This system uses **Peltier thermoelectric cooling technology** combined with forced air cooling (fan) for thermal management of EV batteries.
+
+###  Peltier Technology
+The Peltier module operates on the **Peltier effect**: when DC current passes through a junction of two different semiconductors, heat is absorbed on one side (cold side) and released on the opposite side (hot side). This creates a solid-state heat pump that transfers heat without moving parts or fluids.
+
+---
+
+###  Thermodynamic Principles Applied
+- **First Law of Thermodynamics (Energy Conservation)**  
+  Energy supplied as electrical power to the Peltier module is partly converted into heat absorbed from the battery surface (cooling) and partly into heat dissipated at the hot side. The fan enhances heat rejection from the hot side to the environment.
+  
+- **Second Law of Thermodynamics (Entropy Increase)**  
+  Heat flows from the cooler battery side to the warmer environment with assistance from the Peltier module, which applies work (electric power) to move heat against its natural gradient.
+
+- **Forced Convection (Fan)**  
+  The fan increases the rate of heat removal from the hot side of the Peltier module by forced convection, reducing the thermal resistance and enhancing overall cooling performance.
+
+---
+
+###  Thermal Management Operation
+- The system activates the **Peltier + fan** when the battery temperature exceeds a defined threshold.
+- The **fan alone** operates in moderate conditions to provide passive cooling without high energy consumption.
+- The **LCD displays real-time temperature and cooling status**.
+
+# EV Battery Cooling System IOT Integration
 
 An Arduino-based thermal management system for electric vehicle (EV) batteries, integrating:
 - **Peltier module + fan** for active cooling
@@ -9,7 +35,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 ---
 
-## 📌 Features
+##  Features
 - Real-time battery temperature display on 16×2 LCD
 - Automatic fan and Peltier activation based on temperature thresholds
 - Cooling OFF when temperature is below the minimum setpoint
@@ -17,7 +43,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 ---
 
-## 🔧 Components Used
+##  Components Used
 | Component | Description |
 |------------|-------------|
 | Arduino UNO | Microcontroller |
@@ -32,7 +58,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 ---
 
-## 📌 Components Used
+##  Components Used
 
 | Component | Description | Notes |
 |------------|-------------|-------|
@@ -48,7 +74,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 ---
 
-## ⚡ Key Connections
+##  Key Connections
 
 | Arduino Pin | Connects To | Purpose |
 |-------------|--------------|---------|
@@ -65,13 +91,13 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 | GND | LCD GND, TMP36 GND, MOSFET Source, 12V PSU GND | Ground |
 | Pot wiper | LCD VO | LCD contrast control |
 
-✅ **All grounds must be tied together (Arduino, 12V PSU, MOSFET source, sensor, LCD).**
-✅ **Peltier + and Fan + connect directly to 12V PSU +.**
-✅ **Peltier - and Fan - connect to MOSFET Drain.**
+ **All grounds must be tied together (Arduino, 12V PSU, MOSFET source, sensor, LCD).**
+ **Peltier + and Fan + connect directly to 12V PSU +.**
+ **Peltier - and Fan - connect to MOSFET Drain.**
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - LCD is wired in **4-bit mode** (DB4-DB7 only)
 - RW is tied to **GND** (write-only mode)
@@ -80,7 +106,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 
 
 
-## 💻 Arduino Code
+##  Arduino Code
 
 The Arduino sketch is located in:
 This code:
@@ -90,7 +116,7 @@ This code:
 
 ---
 
-## 🖥 Example Display
+## Example Display
 Temp: 35°C
 Fan:ON Pel:OFF
 OVERHEAT 45°C
@@ -100,7 +126,7 @@ Fan:OFF Pel:OFF
 
 ---
 
-## 📝 How to Use
+## How to Use
 1. Connect all components as per wiring diagram (`circuit_diagram.png` or `circuit_diagram.pdf` if included).
 2. Upload `src/cooling_system.ino` to Arduino using Arduino IDE.
 3. Power up the system (Arduino + external 12V supply for Peltier/fan).
@@ -108,7 +134,7 @@ Fan:OFF Pel:OFF
 
 ---
 
-## 📄 License
+##  License
 This project is licensed under the MIT License — feel free to use, modify, and share.
 
 ---
@@ -118,9 +144,9 @@ EV-Battery-Cooling-System/
 ├── circuit_diagram.png
 ├── README.md
 
-## 🙌 Author
-*Your Name*  
-*Your contact or portfolio link (optional)*
+##  Author
+Prasathk
+https://www.linkedin.com/in/prasathk2003/
 
 ---
 
