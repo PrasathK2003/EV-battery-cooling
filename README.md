@@ -138,11 +138,6 @@ This code:
 This project is licensed under the MIT License — feel free to use, modify, and share.
 
 ---
-EV-Battery-Cooling-System/
-├── src/
-│ └── cooling_system.ino
-├── circuit_diagram.png
-├── README.md
 
 ##  Author
 Prasathk
@@ -150,6 +145,11 @@ https://www.linkedin.com/in/prasathk2003/
 
 ---
 
-## 🏁 Repository structure
+##  Repository structure
+EV-Battery-Cooling-System/
+├── src/
+│ └── cooling_system.ino
+├── circuit_diagram.png
+├── README.md
 
 
