@@ -68,7 +68,7 @@ An Arduino-based thermal management system for electric vehicle (EV) batteries, 
 | **Peltier Module** | Thermoelectric cooler | Driven via MOSFET |
 | **DC Fan** | Cooling fan | Driven via MOSFET |
 | **MOSFET (x2)** | N-channel MOSFET | One for Peltier, one for Fan |
-| **10k Potentiometer** | Contrast control | For LCD VO pin |
+| **10k Potentiometer (optional)** | Contrast control | For LCD VO pin |
 | **220Ω Resistor** | Current limiting | For LCD backlight |
 | **12V Power Supply** | External supply | Powers Fan, Peltier, and Arduino (via VIN or barrel jack) |
 
@@ -117,12 +117,12 @@ This code:
 ---
 
 ## Example Display
-Temp: 35°C
-Fan:ON Pel:OFF
-OVERHEAT 45°C
-Fan:ON Pel:ON
-COOL 28°C
-Fan:OFF Pel:OFF
+# Temp: 35°C
+- Fan:ON Pel:OFF
+#OVERHEAT 45°C
+- Fan:ON Pel:ON
+#COOL 28°C
+- Fan:OFF Pel:OFF
 
 ---
 
